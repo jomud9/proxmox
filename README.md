@@ -14,11 +14,17 @@ or from GUI,
 - check /dev/ttyS0 exists
 - update grub
     $ vi /etc/default/grub
-    
+
+    add:
+      GRUB_TERMINAL="console serial" <br/>
+      GRUB_SERIAL_COMMAND="serial --speed=115200"
+
     update this line  
-    GRUB_CMDLINE_LINUX="quiet console=tty0 console=ttyS0,115200"
+      # GRUB_CMDLINE_LINUX="" <br/>
+      GRUB_CMDLINE_LINUX="quiet console=tty0 console=ttyS0,115200"
+
     After that, update grub setting
-    $ update-grub
+      $ update-grub
 
 
 `$ npm install marked`
