@@ -53,4 +53,29 @@ Ref:
 https://forum.proxmox.com/threads/simple-working-gpu-passthrough-on-uptodate-pve-and-amd-hardware.145462/
 
 
+### Thunderbolt Networking for Proxmox
+Reference: 
+ProxMox Cluster - Soup-to-Nutz
+https://gist.github.com/scyto/76e94832927a89d977ea989da157e9dc
+
+
+Networking over Thunderbolt cable
+https://docs.kernel.org/admin-guide/thunderbolt.html
+It is possible to tunnel any kind of traffic over a Thunderbolt link but currently we only support Apple ThunderboltIP protocol.
+
+If the other host is running Windows or macOS, the only thing you need to do is to connect a Thunderbolt cable between the two hosts; the thunderbolt-net driver is loaded automatically. If the other host is also Linux you should load thunderbolt-net manually on one host (it does not matter which one):
+
+# modprobe thunderbolt-net
+This triggers module load on the other host automatically. If the driver is built-in to the kernel image, there is no need to do anything.
+
+The driver will create one virtual ethernet interface per Thunderbolt port which are named like thunderbolt0 and so on. From this point you can either use standard userspace tools like ifconfig to configure the interface or let your GUI handle it automatically.
+
+
+
+
+Rename Thunderbolt port
+https://gist.github.com/scyto/67fdc9a517faefa68f730f82d7fa3570
+
+
+https://forum.proxmox.com/threads/networking-via-thunderbolt.141027/
 
